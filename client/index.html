@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./@fortawesome/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="search-container">
+            <input id="input-field" placeholder="Search a city" />
+            <i id="search-btn" class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div id="cities-container">
+        </div>
+    </div>
+
+    <script id="city-template" type="text/x-handlebars-template">
+        {{#each cities}}
+        <div id="city">
+
+            <div id="temp-city">
+                <div id="temp"> 
+                    <h2>{{temperature}}</h2>
+                    <span>&#8451</span>
+                </div>
+                <div id="city">
+                    <p>{{name}}</p>
+                </div> 
+            </div>
+            
+            <div id="condition">
+                <img id="condition-icon" src="{{conditionPic}}" />
+                <p id="condition">{{condition}}</p>
+            </div>
+
+        </div>
+
+        {{/each}}
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="TempManager.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
