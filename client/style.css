@@ -1,4 +1,30 @@
+#cities-container {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
 #city {
-    height: 100px;
+
+    height: 150px;
     background-color: aliceblue;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+#temp-city {
+    display: flex;
+    flex-direction: column;
+}
+
+#temp {
+    display: flex;
+    flex-direction: row;
+}
+
+#condition {
+    display: flex;
+    flex-direction: column;
 }

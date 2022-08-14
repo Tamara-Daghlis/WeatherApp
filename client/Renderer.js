@@ -5,9 +5,10 @@ class Renderer {
     }
 
     renderCitiesData(cities) {
+
         const source = this.cityTemplateElement.html()
         const template = Handlebars.compile(source)
         let newHTMLElement = template({ cities })
-        this.citiesContainerElement.empty().append(newHTMLElement)
+        this.citiesContainerElement.html(" ").append(newHTMLElement)
     }
 }

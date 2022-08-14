@@ -36,7 +36,6 @@ router.get('/cities', function (request, response) {
     }
 })
 
-//sexrch for exist() if there is time 
 router.post('/city', function (request, response) {
     let newCity = new city({
         'name': request.body.name,

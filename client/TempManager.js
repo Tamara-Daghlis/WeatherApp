@@ -1,3 +1,4 @@
+
 class TempManager {
     constructor() {
         this.cityData = []
@@ -32,18 +33,19 @@ class TempManager {
 
     }
 
-    saveCity(cityName) {
-        let city = {}
+    saveCity(city) {
+        let index = this.cityData.findIndex((c) => c.name === city.name);
+        this.cityData.splice(index, 1);
         return $.ajax({
-            method: 'post',
-            url: '/city',
-            success: (newCity) => {
-                city = this.cityData.find(city => city.name === cityName)
-            },
+            method: "post",
+            url: "/city",
             data: city,
-            error: function (xhr, text, error) {
+            success: (city) => {
+                this.cityData.push(city);
+            },
+            error: function (error, text) {
                 console.log(error);
-            }
+            },
         })
     }
 
@@ -53,12 +55,8 @@ class TempManager {
             method: 'delete',
             url: `/city/${cityName}`,
             success: (city) => {
-                for (let cityIndex in this.cityData) {
-                    if (this.cityData[cityIndex] === cityName) {
-                        this.cityData.splice(cityIndex, 1)
-                    }
-                }
-                console.log(this.cityData)
+                let index = this.cityData.findIndex((c) => c.name === cityName);
+                this.cityData.splice(index, 1);
             },
             error: function (xhr, text, error) {
                 console.log(error);
